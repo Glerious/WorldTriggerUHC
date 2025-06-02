@@ -1,0 +1,30 @@
+name: WorldTriggerUHC
+creator: Glerious
+
+expected:
+  team_not_found: "L'équipe n'existe pas."
+  grade_require: "Grade superieur requis."
+  arg_require: "Nombre d'arguments invalide."
+  type_require: "Type d'arguments invalide."
+  game_require: "Aucune partie reconnue."
+  role_require: "Joueur sans rôle."
+  team_require: "Joueur sans équipe."
+  player_require: "Joueur introuvable / déconnecté."
+  role_not_exist: "Rôle inexistant."
+  no_access_inventory: "&7Vous n'avez pas accès à cet inventaire."
+  game_state_require: "Vous n'êtes pas au bon moment de la partie. Revenez plus tard."
+
+
+commands_feedback:
+  help: "§7§m---------------------------------------------\n
+        §6§lMenu :\n
+        §7 ▹ help - Renvoie le menu d'aide.\n
+        §7 ▹ choose - Permet de choisir une classe.\n
+        §7 ▹ role - Modifie la classe d'un joueur donné. (§bMod§7)\n
+        §7 ▹ start - Démarre une partie. (§aHost§7)\n
+        §7 ▹ stop - Termine une partie. (§aHost§7)\n
+        §7§m---------------------------------------------"
+
+information:
+  announce: "§7Vous obtenez la Classe : §6§l"
+  cooldown: "§cVous êtes en cooldown. Temps restant : "

@@ -1,0 +1,9 @@
+main: fr.glerious.worldtriggeruhc.Main.Main
+name: WorldtriggerUHC
+version: 1.0
+author: Glerious
+depend:
+  - UHCManagerAPI
+commands:
+  wt:
+    description: DUCK

@@ -1,10 +1,9 @@
 package fr.glerious.worldtriggeruhc.combatclass;
 
-import fr.glerious.uhcmanagerapi.gameplayer.BetterItems;
+import fr.glerious.javautils.BetterItems;
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
-import fr.glerious.uhcmanagerapi.utils.Menu;
-import fr.glerious.uhcmanagerapi.utils.Methods;
-import fr.glerious.uhcmanagerapi.utils.menu.Page;
+import fr.glerious.javautils.Menu;
+import fr.glerious.javautils.Methods;
 import fr.glerious.worldtriggeruhc.Main;
 import fr.glerious.worldtriggeruhc.combatclass.classes.*;
 import org.bukkit.Material;
@@ -14,6 +13,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,12 +30,11 @@ public class CombatClassMenu extends Menu implements Listener {
                 new BetterItems(Material.SNOW_BALL, "§l§2Classe all-rounder", true),
                 new BetterItems(Material.EMERALD, "§l§2Classe Operator", true)
         );
-        Page page = new Page(name, 1, slots, betterItems);
-        addPage("0", page, true);
+        modifyBasePage(1, Methods.list2Hash(slots, betterItems));
     }
 
     @EventHandler
-    public void onClassItemClick(InventoryClickEvent event){
+    public void onClassItemClick(InventoryClickEvent event) {
         if (!event.getInventory().getName().equals(actualPage.getInventory().getName())) return;
         if (event.getCursor() == null) return;
 
@@ -47,16 +46,27 @@ public class CombatClassMenu extends Menu implements Listener {
         if (item == null) return;
         event.setCancelled(true);
         switch (item.getType()) {
-            case BLAZE_ROD : Main.getCombatClasses().add(new Attacker(gamePlayer)); break;
-            case BOW : Main.getCombatClasses().add(new Gunner(gamePlayer)); break;
-            case MAGMA_CREAM : Main.getCombatClasses().add(new Shooter(gamePlayer)); break;
-            case ARROW : Main.getCombatClasses().add(new Sniper(gamePlayer)); break;
-            case SNOW_BALL : Main.getCombatClasses().add(new AllRounder(gamePlayer)); break;
-            case EMERALD :Main.getCombatClasses().add(new Operator(gamePlayer)); break;
+            case BLAZE_ROD : addCombatClass(gamePlayer, Attacker.class); break;
+            case BOW : addCombatClass(gamePlayer, Gunner.class); break;
+            case MAGMA_CREAM : addCombatClass(gamePlayer, Shooter.class); break;
+            case ARROW : addCombatClass(gamePlayer, Sniper.class); break;
+            case SNOW_BALL : addCombatClass(gamePlayer, AllRounder.class); break;
+            case EMERALD : addCombatClass(gamePlayer, Operator.class); break;
         }
-        CombatClass combatClass = Main.getCombatClass(player.getUniqueId());
-        assert combatClass != null;
-        combatClass.updateRoleLine();
         player.closeInventory();
+    }
+
+    public static void addCombatClass(GamePlayer gamePlayer, Class<? extends CombatClass> cCombatClass) {
+        Main.getCombatClasses().removeIf(otherCombatClass
+                -> otherCombatClass.getGamePlayer().equals(gamePlayer));
+        CombatClass combatClass = null;
+        try {
+            combatClass = cCombatClass.getDeclaredConstructor(GamePlayer.class).newInstance(gamePlayer);
+        } catch (InstantiationException | IllegalAccessException
+                 | InvocationTargetException | NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
+        combatClass.updateRoleLine();
+        Main.getCombatClasses().add(combatClass);
     }
 }

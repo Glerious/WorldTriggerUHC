@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/WorldTriggerUHC.iml" filepath="$PROJECT_DIR$/WorldTriggerUHC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/WorldTriggerUHC.iml" filepath="$PROJECT_DIR$/.idea/WorldTriggerUHC.iml" />
     </modules>
   </component>
 </project>

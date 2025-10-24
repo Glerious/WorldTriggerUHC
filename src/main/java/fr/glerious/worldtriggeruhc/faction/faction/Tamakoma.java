@@ -1,7 +1,7 @@
 package fr.glerious.worldtriggeruhc.faction.faction;
 
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
-import fr.glerious.uhcmanagerapi.utils.Methods;
+import fr.glerious.javautils.Methods;
 import fr.glerious.worldtriggeruhc.Main;
 import fr.glerious.worldtriggeruhc.faction.Faction;
 import org.bukkit.Location;
@@ -23,7 +23,7 @@ public class Tamakoma extends Faction {
             String message = "§7§m-----------------------------------------" + "\n" +
                     "§7Vous êtes de la faction §6§lTomakoma§7." + "\n" +
                     "§7Vous obtenez §eVitesse§7 proche d'un Neighbor." + "\n" +
-                    "§7Vous obtenez §eVitesse II§7 si un Neighbor se trouve dans votre équipe." + "\n" +
+                    "§7Si un Neighbor est dans votre équipe, il obtient §eVitesse II§7 permanant." + "\n" +
                     "§7§m-----------------------------------------";
             gamePlayer.getPlayer().sendMessage(message);
         }
@@ -46,7 +46,7 @@ public class Tamakoma extends Faction {
                 Location loc2 = otherGamePlayer.getPlayer().getLocation();
                 if (loc1.distance(loc2) > 20) continue;
 
-                PotionEffect givenPotion = speed.createEffect(20 * 2, 0);
+                PotionEffect givenPotion = speed.createEffect(Methods.seconds2ticks(2), 0);
                 player.addPotionEffect(givenPotion);
             }
         }
@@ -56,7 +56,7 @@ public class Tamakoma extends Faction {
     public void power() {
         for (GamePlayer gamePlayer : getTeamGamePlayer()) {
             if (Main.getNeighbor(gamePlayer.getUuid()) == null) continue;
-            PotionEffect speed = PotionEffectType.SPEED.createEffect(Methods.seconds2ticks(10000000), 0);
+            PotionEffect speed = PotionEffectType.SPEED.createEffect(Methods.seconds2ticks(10000000), 1);
             gamePlayer.getPlayer().addPotionEffect(speed);
         }
     }

@@ -1,12 +1,12 @@
 package fr.glerious.worldtriggeruhc.combatclass.classes;
 
-import fr.glerious.uhcmanagerapi.gameplayer.BetterItems;
+import fr.glerious.javautils.BetterItems;
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
-import fr.glerious.uhcmanagerapi.utils.Methods;
+import fr.glerious.javautils.Methods;
 import fr.glerious.worldtriggeruhc.combatclass.CombatClass;
-import fr.glerious.worldtriggeruhc.utils.ConfigAPI;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
@@ -35,7 +35,7 @@ public class Attacker extends CombatClass {
 
     @Override
     public void annonce() {
-
+        super.annonce();
     }
 
     @Override
@@ -45,11 +45,12 @@ public class Attacker extends CombatClass {
 
     @Override
     public void power() {
+        Player player = gamePlayer.getPlayer();
         if(getCooldown() == 0) {
-            Vector look = getGamePlayer().getPlayer().getLocation().getDirection().normalize();
-            getGamePlayer().getPlayer().setVelocity(look.multiply(1.7));
+            Vector look = player.getLocation().getDirection().normalize();
+            player.setVelocity(look.multiply(1.7));
             setCooldown(Methods.seconds2ticks(10));
         }
-        getGamePlayer().getPlayer().sendMessage(ConfigAPI.getInformation("cooldown") + getCooldown());
+        super.power();
     }
 }

@@ -1,28 +1,28 @@
 package fr.glerious.worldtriggeruhc.addons;
 
-import fr.glerious.uhcmanagerapi.timeline.Runnables;
+import fr.glerious.uhcmanagerapi.timeline.Event;
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
-import fr.glerious.uhcmanagerapi.permission.Grade;
+import fr.glerious.javautils.Grade;
 import fr.glerious.worldtriggeruhc.Main;
-import fr.glerious.worldtriggeruhc.utils.ConfigAPI;
+import fr.glerious.worldtriggeruhc.ConfigWT;
 
 import java.util.List;
 
-public class StartRunnable extends Runnables {
+public class StartRunnable extends Event {
 
     private final List<GamePlayer> allGamePlayer = fr.glerious.uhcmanagerapi.Main.getGamePlayers();
 
     public StartRunnable() {
-        super(0, 0);
+        super(0);
     }
 
     @Override
     public boolean condition() {
-        if (allGamePlayer.size() != Main.getCombatClasses().size()) return true;
+        if (allGamePlayer.size() == Main.getCombatClasses().size()) return true;
         for (GamePlayer gamePlayer:
                 allGamePlayer) {
             if (gamePlayer.hasGarde(Grade.HOST))
-                gamePlayer.getPlayer().sendMessage(ConfigAPI.getToConfig("expected.role_require"));
+                gamePlayer.getPlayer().sendMessage(ConfigWT.getExpected("role_require"));
         }
         return false;
     }
@@ -34,10 +34,6 @@ public class StartRunnable extends Runnables {
 
     @Override
     public void action() {
-        for (GamePlayer gamePlayer :
-                allGamePlayer) {
-            gamePlayer.getPlayer().getInventory().clear();
-            Main.getCombatClass(gamePlayer.getUuid()).annonce();
-        }
+
     }
 }

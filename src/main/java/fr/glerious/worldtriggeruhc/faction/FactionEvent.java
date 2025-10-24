@@ -1,6 +1,7 @@
 package fr.glerious.worldtriggeruhc.faction;
 
-import fr.glerious.uhcmanagerapi.timeline.Events;
+import fr.glerious.uhcmanagerapi.timeline.Event;
+import fr.glerious.javautils.Methods;
 import fr.glerious.worldtriggeruhc.Main;
 import fr.glerious.worldtriggeruhc.faction.faction.Kido;
 import fr.glerious.worldtriggeruhc.faction.faction.Shinoda;
@@ -11,11 +12,21 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class FactionEvent extends Events {
+public class FactionEvent extends Event {
 
     public FactionEvent()
     {
-        super(1200);
+        super(Methods.seconds2ticks(60));
+    }
+
+    @Override
+    public boolean condition() {
+        return false;
+    }
+
+    @Override
+    public void exit() {
+
     }
 
     @Override

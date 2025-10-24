@@ -21,7 +21,7 @@ public class JoinAndQuitListener implements Listener {
             public void run() {
                 GamePlayer gamePlayer = fr.glerious.uhcmanagerapi.Main.getGamePlayer(event.getPlayer().getUniqueId());
                 gamePlayer.getSideBar().setMoreLine(0, "§7» §6Classe: §7 Aucun");
-                gamePlayer.getSideBar().changeNames("§6◈ §lTrigger§7§lWorld", "Glerious");
+                gamePlayer.getSideBar().changeNames("§6◈ §lWorld§7§lTrigger");
                 gamePlayer.getSideBar().showScoreboard();
             }
         }.runTaskLater(Main.getMain(), 1);
@@ -41,9 +41,8 @@ public class JoinAndQuitListener implements Listener {
         if (!(fr.glerious.uhcmanagerapi.Main.getGameState() instanceof Waiting)) return;
         if (item == null) return;
         if(action.equals(Action.RIGHT_CLICK_AIR) || action.equals(Action.RIGHT_CLICK_BLOCK)) {
-            switch (item.getItemMeta().getDisplayName()) {
-                case "§cTeam": player.performCommand("uhc team"); break;
-                case "§cClasse": player.performCommand("wt choose"); break;
+            if (item.getItemMeta().getDisplayName().equals("§cClasse")) {
+                player.performCommand("wt choose");
             }
         } event.setCancelled(true);
     }

@@ -1,10 +1,9 @@
 package fr.glerious.worldtriggeruhc.combatclass.classes;
 
-import fr.glerious.uhcmanagerapi.gameplayer.BetterItems;
+import fr.glerious.javautils.BetterItems;
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
-import fr.glerious.uhcmanagerapi.utils.Methods;
+import fr.glerious.javautils.Methods;
 import fr.glerious.worldtriggeruhc.combatclass.CombatClass;
-import fr.glerious.worldtriggeruhc.utils.ConfigAPI;
 import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
@@ -18,7 +17,7 @@ import java.util.List;
 
 public class Sniper extends CombatClass {
 
-    private Boolean mode;
+    private Boolean mode = Boolean.FALSE;
 
     public Sniper(GamePlayer gamePlayer)
     {
@@ -50,9 +49,9 @@ public class Sniper extends CombatClass {
 
     @Override
     public void annonce() {
+        super.annonce();
         mode = true;
         ambient();
-
     }
 
     @Override
@@ -77,12 +76,12 @@ public class Sniper extends CombatClass {
         Player player = gamePlayer.getPlayer();
         if(cooldown == 0) {
             Vector playerDirection = player.getLocation().getDirection();
-            player.launchProjectile(Arrow.class, playerDirection.multiply(5));
+            player.launchProjectile(Arrow.class, playerDirection.multiply(5.5));
             player.addPotionEffect(PotionEffectType.SPEED.createEffect(Methods.seconds2ticks(3), 2), true);
-            setCooldown(30 * 20);
+            setCooldown(Methods.seconds2ticks(30));
             if(getMode()) ambient();
             return;
         }
-        player.sendMessage(ConfigAPI.getInformation("cooldown") + cooldown);
+        super.power();
     }
 }

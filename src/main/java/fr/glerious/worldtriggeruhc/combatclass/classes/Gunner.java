@@ -1,12 +1,12 @@
 package fr.glerious.worldtriggeruhc.combatclass.classes;
 
-import fr.glerious.uhcmanagerapi.gameplayer.BetterItems;
+import fr.glerious.javautils.BetterItems;
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
-import fr.glerious.uhcmanagerapi.utils.Methods;
+import fr.glerious.javautils.Methods;
 import fr.glerious.worldtriggeruhc.combatclass.CombatClass;
-import fr.glerious.worldtriggeruhc.utils.ConfigAPI;
 import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
@@ -34,7 +34,7 @@ public class Gunner extends CombatClass {
 
     @Override
     public void annonce() {
-
+        super.annonce();
     }
 
     @Override
@@ -44,12 +44,13 @@ public class Gunner extends CombatClass {
 
     @Override
     public void power() {
+        Player player = gamePlayer.getPlayer();
         if (getCooldown() == 0) {
-            Vector playerDirection = getGamePlayer().getPlayer().getLocation().getDirection();
-            getGamePlayer().getPlayer().launchProjectile(Arrow.class, playerDirection.multiply(1.2));
+            Vector playerDirection = player.getLocation().getDirection();
+            player.launchProjectile(Arrow.class, playerDirection.multiply(2));
             setCooldown(Methods.seconds2ticks(0.5));
             return;
         }
-        getGamePlayer().getPlayer().sendMessage(ConfigAPI.getInformation("cooldown") + getCooldown());
+        super.power();
     }
 }

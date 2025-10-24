@@ -24,7 +24,7 @@ public class Operator extends CombatClass {
 
     @Override
     public void annonce() {
-
+        super.annonce();
     }
 
     @Override

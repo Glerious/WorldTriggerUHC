@@ -1,23 +1,24 @@
 package fr.glerious.worldtriggeruhc.addons;
 
-import fr.glerious.uhcmanagerapi.timeline.Runnables;
+import fr.glerious.uhcmanagerapi.timeline.Runnable;
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
+import fr.glerious.uhcmanagerapi.timeline.gamestates.InGame;
 import fr.glerious.uhcmanagerapi.timeline.gamestates.Waiting;
 import fr.glerious.worldtriggeruhc.Main;
 import fr.glerious.worldtriggeruhc.combatclass.CombatClass;
+import org.bukkit.Bukkit;
 
-public class Cooldown extends Runnables {
+public class Cooldown extends Runnable {
 
 
-    public Cooldown()
-    {
+    public Cooldown() {
         super(0, 1);
     }
 
 
     @Override
     public boolean condition() {
-        return !(fr.glerious.uhcmanagerapi.Main.getGameState() instanceof Waiting);
+        return !(fr.glerious.uhcmanagerapi.Main.getGameState() instanceof InGame);
     }
 
     @Override

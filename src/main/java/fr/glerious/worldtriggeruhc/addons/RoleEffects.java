@@ -1,13 +1,14 @@
 package fr.glerious.worldtriggeruhc.addons;
 
-import fr.glerious.uhcmanagerapi.timeline.Runnables;
+import fr.glerious.uhcmanagerapi.timeline.Runnable;
+import fr.glerious.uhcmanagerapi.timeline.gamestates.InGame;
 import fr.glerious.uhcmanagerapi.timeline.gamestates.Waiting;
-import fr.glerious.uhcmanagerapi.utils.Methods;
+import fr.glerious.javautils.Methods;
 import fr.glerious.worldtriggeruhc.Main;
 import fr.glerious.worldtriggeruhc.faction.FactionFeatures;
 import fr.glerious.worldtriggeruhc.neighbors.Neighbor;
 
-public class RoleEffects extends Runnables {
+public class RoleEffects extends Runnable {
 
     public RoleEffects()
     {
@@ -16,7 +17,7 @@ public class RoleEffects extends Runnables {
 
     @Override
     public boolean condition() {
-        return !(fr.glerious.uhcmanagerapi.Main.getGameState() instanceof Waiting);
+        return !(fr.glerious.uhcmanagerapi.Main.getGameState() instanceof InGame);
     }
 
     @Override

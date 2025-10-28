@@ -1,7 +1,7 @@
 package fr.glerious.worldtriggeruhc.neighbors;
 
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
-import fr.glerious.javautils.Methods;
+import fr.glerious.uhcmanagerapi.utils.Methods;
 import fr.glerious.worldtriggeruhc.addons.Gameplayered;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;

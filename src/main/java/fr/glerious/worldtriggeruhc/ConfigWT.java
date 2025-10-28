@@ -1,6 +1,6 @@
 package fr.glerious.worldtriggeruhc;
 
-import fr.glerious.javautils.ConfigAPI;
+import fr.glerious.uhcmanagerapi.utils.ConfigAPI;
 
 public class ConfigWT extends ConfigAPI {
 

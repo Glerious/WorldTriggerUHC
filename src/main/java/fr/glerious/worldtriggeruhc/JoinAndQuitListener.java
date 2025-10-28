@@ -2,6 +2,7 @@ package fr.glerious.worldtriggeruhc;
 
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
 import fr.glerious.uhcmanagerapi.timeline.gamestates.Waiting;
+import fr.glerious.worldtriggeruhc.utils.Methods;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,7 +25,7 @@ public class JoinAndQuitListener implements Listener {
                 gamePlayer.getSideBar().changeNames("§6◈ §lWorld§7§lTrigger");
                 gamePlayer.getSideBar().showScoreboard();
             }
-        }.runTaskLater(Main.getMain(), 1);
+        }.runTaskLater(Main.getMain(), Methods.seconds2ticks(1));
 
     }
 

@@ -58,11 +58,11 @@ public class Methods {
     public static String cooldownMessage(int cooldownTick) {
         if (cooldownTick < 20) return "Un instant.";
         else {
-            int hour = (int) ((double) (cooldownTick / fr.glerious.javautils.Methods.seconds2ticks(3600)));
+            int hour = (int) ((double) (cooldownTick / fr.glerious.uhcmanagerapi.utils.Methods.seconds2ticks(3600)));
             int minute = (int) ((double) (cooldownTick
-                    / fr.glerious.javautils.Methods.seconds2ticks(3600)) - 60 * hour);
+                    / fr.glerious.uhcmanagerapi.utils.Methods.seconds2ticks(3600)) - 60 * hour);
             int seconde = (int) ((double) (cooldownTick
-                    /fr.glerious.javautils.Methods.seconds2ticks(1)) - 3600 * hour - 60 * minute);
+                    /fr.glerious.uhcmanagerapi.utils.Methods.seconds2ticks(1)) - 3600 * hour - 60 * minute);
 
             StringBuilder timer = getStringBuilder(hour, minute, seconde);
             return timer.toString();

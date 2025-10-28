@@ -1,6 +1,6 @@
 package fr.glerious.worldtriggeruhc;
 
-import fr.glerious.javautils.Grade;
+import fr.glerious.uhcmanagerapi.utils.Grade;
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
 import fr.glerious.uhcmanagerapi.timeline.gamestates.InGame;
 import fr.glerious.worldtriggeruhc.combatclass.CombatClassMenu;

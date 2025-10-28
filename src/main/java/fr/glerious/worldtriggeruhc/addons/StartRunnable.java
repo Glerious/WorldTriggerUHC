@@ -2,7 +2,7 @@ package fr.glerious.worldtriggeruhc.addons;
 
 import fr.glerious.uhcmanagerapi.timeline.Event;
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
-import fr.glerious.javautils.Grade;
+import fr.glerious.uhcmanagerapi.utils.Grade;
 import fr.glerious.worldtriggeruhc.Main;
 import fr.glerious.worldtriggeruhc.ConfigWT;
 

@@ -1,7 +1,7 @@
 package fr.glerious.worldtriggeruhc.faction;
 
 import fr.glerious.uhcmanagerapi.timeline.Event;
-import fr.glerious.javautils.Methods;
+import fr.glerious.uhcmanagerapi.utils.Methods;
 import fr.glerious.worldtriggeruhc.Main;
 import fr.glerious.worldtriggeruhc.faction.faction.Kido;
 import fr.glerious.worldtriggeruhc.faction.faction.Shinoda;

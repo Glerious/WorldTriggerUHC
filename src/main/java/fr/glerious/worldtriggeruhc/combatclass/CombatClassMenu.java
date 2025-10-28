@@ -1,9 +1,9 @@
 package fr.glerious.worldtriggeruhc.combatclass;
 
-import fr.glerious.javautils.BetterItems;
+import fr.glerious.uhcmanagerapi.utils.BetterItems;
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
-import fr.glerious.javautils.Menu;
-import fr.glerious.javautils.Methods;
+import fr.glerious.uhcmanagerapi.utils.Menu;
+import fr.glerious.uhcmanagerapi.utils.Methods;
 import fr.glerious.worldtriggeruhc.Main;
 import fr.glerious.worldtriggeruhc.combatclass.classes.*;
 import org.bukkit.Material;

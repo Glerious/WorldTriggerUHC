@@ -1,9 +1,9 @@
 package fr.glerious.worldtriggeruhc;
 
 import fr.glerious.uhcmanagerapi.ConfigUHC;
-import fr.glerious.javautils.BetterItems;
+import fr.glerious.uhcmanagerapi.utils.BetterItems;
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
-import fr.glerious.javautils.Grade;
+import fr.glerious.uhcmanagerapi.utils.Grade;
 import fr.glerious.uhcmanagerapi.timeline.GameState;
 import fr.glerious.uhcmanagerapi.timeline.gamestates.Waiting;
 import fr.glerious.worldtriggeruhc.addons.AttributeEvent;

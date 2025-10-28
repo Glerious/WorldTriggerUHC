@@ -1,8 +1,8 @@
 package fr.glerious.worldtriggeruhc.combatclass.classes;
 
-import fr.glerious.javautils.BetterItems;
+import fr.glerious.uhcmanagerapi.utils.BetterItems;
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
-import fr.glerious.javautils.Methods;
+import fr.glerious.uhcmanagerapi.utils.Methods;
 import fr.glerious.worldtriggeruhc.combatclass.CombatClass;
 import net.minecraft.server.v1_8_R3.Tuple;
 import org.bukkit.Material;

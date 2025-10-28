@@ -1,7 +1,7 @@
 package fr.glerious.worldtriggeruhc.faction.faction;
 
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
-import fr.glerious.javautils.Methods;
+import fr.glerious.uhcmanagerapi.utils.Methods;
 import fr.glerious.worldtriggeruhc.Main;
 import fr.glerious.worldtriggeruhc.faction.Faction;
 import org.bukkit.Location;

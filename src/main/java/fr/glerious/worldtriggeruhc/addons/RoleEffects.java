@@ -3,7 +3,7 @@ package fr.glerious.worldtriggeruhc.addons;
 import fr.glerious.uhcmanagerapi.timeline.Runnable;
 import fr.glerious.uhcmanagerapi.timeline.gamestates.InGame;
 import fr.glerious.uhcmanagerapi.timeline.gamestates.Waiting;
-import fr.glerious.javautils.Methods;
+import fr.glerious.uhcmanagerapi.utils.Methods;
 import fr.glerious.worldtriggeruhc.Main;
 import fr.glerious.worldtriggeruhc.faction.FactionFeatures;
 import fr.glerious.worldtriggeruhc.neighbors.Neighbor;

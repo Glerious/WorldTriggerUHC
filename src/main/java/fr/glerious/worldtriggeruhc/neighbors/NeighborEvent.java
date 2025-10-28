@@ -2,7 +2,7 @@ package fr.glerious.worldtriggeruhc.neighbors;
 
 import fr.glerious.uhcmanagerapi.gameplayer.GamePlayer;
 import fr.glerious.uhcmanagerapi.timeline.Event;
-import fr.glerious.javautils.Methods;
+import fr.glerious.uhcmanagerapi.utils.Methods;
 import fr.glerious.worldtriggeruhc.Main;
 import org.bukkit.Bukkit;
 
